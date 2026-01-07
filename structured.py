@@ -1,31 +1,19 @@
-def calculate_grade(avg):
-    if 90 <= avg <= 100:
-        return "S"
-    elif 80 <= avg <= 89:
-        return "A"
-    elif 65 <= avg <= 79:
-        return "B"
-    elif 50 <= avg <= 64:
-        return "C"
-    elif 40 <= avg <= 49:
-        return "D"
-    else:
-        return "F"
+import sys
 
-name = input("Enter student name: ")
-department = input("Enter department: ")
-semester = input("Enter semester: ")
+# Check arguments
+if len(sys.argv) != 5:
+    print("Usage: python structured.py <name> <mark1> <mark2> <mark3>")
+    sys.exit(1)
 
-m1 = float(input("Enter marks in Subject 1: "))
-m2 = float(input("Enter marks in Subject 2: "))
-m3 = float(input("Enter marks in Subject 3: "))
+name = sys.argv[1]
+mark1 = int(sys.argv[2])
+mark2 = int(sys.argv[3])
+mark3 = int(sys.argv[4])
 
-average = (m1 + m2 + m3) / 3
-grade = calculate_grade(average)
+total = mark1 + mark2 + mark3
+average = total / 3
 
-print("\n----- Student Result -----")
-print("Name:", name)
-print("Department:", department)
-print("Semester:", semester)
-print("Average Marks:", average)
-print("Grade:", grade)
+print("Student Name:", name)
+print("Marks:", mark1, mark2, mark3)
+print("Total:", total)
+print("Average:", average)
